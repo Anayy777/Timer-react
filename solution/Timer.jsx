@@ -39,7 +39,6 @@ const Timer = () => {
         ...formatTime(time),
         [field]: editState.value.padStart(2, '0') // Add leading zeros if necessary
       };
-
       // Use the auxiliary function to calculate the total time in seconds
 
       const calculatedTime = calculateTime(newTime.hours, newTime.minutes, newTime.seconds);
