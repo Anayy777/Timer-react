@@ -54,6 +54,8 @@
           ...prevField , value
         }))
       }
+
+      const {hours , minutes , seconds}  = formatTime(time);
       return (
         <div className={style.timerApp}>
             <div className={style.timerDisplay}>
@@ -109,12 +111,12 @@
             </div>
             <div className={style.actionButtons}>
                 
-                <button className={style.actionButton} onClick={toggleTimer}>
-                    {isRunning ? 'Pause' : 'Start'}
-                </button>
-                <button className={style.actionButton} onClick={resetTimer}>
-                    Reset
-                </button>
+              <button className={style.actionButton} onClick={() => setIsRunning(!isRunning)}>
+                {isRunning ? 'Pause' : 'Start'} {/* Toggle between Start and Pause */}
+              </button>
+              <button className={style.actionButton} onClick={() => { setTime(0); setInitialTime(0); setIsRunning(false); }}>
+                Reset {/* Reset the timer */}
+              </button>
             </div>
         </div>
     )
